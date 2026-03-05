@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/database/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum Risco {
+  ALTO
+  MODERADO
+  BAIXO
+}
+
+model Categoria {
+  id        Int       @id @default(autoincrement())
+  nome      String    @unique @db.VarChar(150)
+  status    Int       @default(1)
+  userAt    String?   @db.VarChar(100)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+
+  g6dp G6pd[]
+
+  @@map("categoria")
+}
+
+model G6pd {
+  id          String    @id @default(uuid())
+  nome        String    @unique @db.VarChar(150)
+  composicao  String    @db.VarChar(150)
+  categoriaId Int
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  classe      String    @db.VarChar(150)
+  causa       String    @db.VarChar(2000)
+  utilizacao  String    @db.VarChar(2000)
+  risco       Risco     @default(ALTO)
+  confirma    String?   @db.VarChar(1)
+  status      Int       @default(1)
+  userAt      String?   @db.VarChar(100)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+
+  @@map("g6pd")
+}

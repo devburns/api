@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "build": "prisma generate && tsc",
-    "postbuild": "cp -r src/database/generated dist/database/",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
     "migration": "npx prisma migrate dev --name start"
