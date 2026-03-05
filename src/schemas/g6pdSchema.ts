@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { Risco } from "@prisma/client"
+import { Risco } from "../database/generated/prisma"
 
 // Helper para transformar: "" ou null -> undefined
 const emptyToUndefined = <T extends z.ZodTypeAny>(schema: T) =>
