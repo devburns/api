@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "target": "ES2023",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "target": "ES2023", // Output moderno compatível com Node 22+
+    "module": "ESNext", // Usar ESM
+    "moduleResolution": "node", // Compatível com Node ESM
+    "outDir": "./dist", // Pasta de build
+    "rootDir": "./src", // Código fonte
+    "strict": true, // Checagem completa
+    "esModuleInterop": true, // Para compatibilidade com import/export
+    "skipLibCheck": true, // Ignora checagem de node_modules
     "strictPropertyInitialization": false,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "experimentalDecorators": true
   },
-  "include": ["src"],
+  "include": ["src"], // Inclui todos os arquivos TS
   "exclude": ["node_modules"]
 }
