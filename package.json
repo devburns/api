@@ -4,12 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "prisma migrate dev --name start && prisma generate && tsc",
+    "build": "prisma generate && tsc",
     "postbuild": "cp -r src/database/generated dist/database/",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "migration": "npx prisma migrate dev --name start",
-    "generate": "npx prisma generate"
+    "migration": "npx prisma migrate dev --name start"
   },
   "keywords": [],
   "author": "",
