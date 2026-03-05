@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2023", // Output moderno compatível com Node 22+
-    "module": "ESNext", // Usar ESM
-    "moduleResolution": "node", // Compatível com Node ESM
+    "target": "ES2020", // Output moderno compatível com Node 22+
+    "module": "CommonJS", // Usar ESM
     "outDir": "./dist", // Pasta de build
     "rootDir": "./src", // Código fonte
     "strict": true, // Checagem completa
@@ -13,5 +12,5 @@
     "experimentalDecorators": true
   },
   "include": ["src"], // Inclui todos os arquivos TS
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
